@@ -16,6 +16,7 @@ define('ROOT',$root. '/devinette_mvc/Devinette/' );
 define('CONTROLLER', ROOT.'controller/');
 define('VIEW', ROOT.'view/');
 define('MODEL', ROOT.'model/');
+define('CLASSES', ROOT.'classes/');
 
 define('ASSETS', HOST.'assets/');
 
