@@ -5,23 +5,48 @@ error_reporting(E_ALL);
 //echo'<pre>';
 //var_dump($_SERVER);
 //echo '</pre>';
+class MYAutoload 
+{
+    public static function start()
+    {
 
-$root = $_SERVER['DOCUMENT_ROOT'];
-$host = $_SERVER['HTTP_HOST'];
+        spl_autoload_register(array(__CLASS__,'autoload'));
+        $root = $_SERVER['DOCUMENT_ROOT'];
+        $host = $_SERVER['HTTP_HOST'];
+        
+        define('HOST', 'http://'.$host. '/devinette_mvc/Devinette/');
+        define('ROOT',$root. '/devinette_mvc/Devinette/' );
+        
+        
+        define('CONTROLLER', ROOT.'controller/');
+        define('VIEW', ROOT.'view/');
+        define('MODEL', ROOT.'model/');
+        define('CLASSES', ROOT.'classes/');
+        
+        define('ASSETS', HOST.'assets/');
+        
+    }
+    public static function autoload($class)
+    {
+       if(file_exists(MODEL.$class. '.php'))
+       { 
 
-define('HOST', 'http://'.$host. '/devinette_mvc/Devinette/');
-define('ROOT',$root. '/devinette_mvc/Devinette/' );
+        include_once(MODEL.$class. '.php');
 
+       }elseif(file_exists(CLASSES.$class. '.php'))
+       {
+        include_once(CLASSES.$class. '.php');
 
-define('CONTROLLER', ROOT.'controller/');
-define('VIEW', ROOT.'view/');
-define('MODEL', ROOT.'model/');
-define('CLASSES', ROOT.'classes/');
+       }elseif(file_exists(VIEW.$class. '.php')){
 
-define('ASSETS', HOST.'assets/');
+        include_once(VIEW.$class.'.php');
 
-
-
+       }elseif(file_exists(CONTROLLER.$class. '.php'))
+       {
+        include_once(CONTROLLER.$class.'.php');	
+       }
+ }
+}
 
 
 
