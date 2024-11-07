@@ -1,15 +1,17 @@
 <?php
+include_once(CONTROLLER . "Home.php");
 
 class Routeur
 {
     private $request;
     private $routes = [
-        "home" => "home",
+        "home" => ["controller" => "Home", "method" => "showHome"],
+        "contact" => ["controller" => "Home", "method" => "showContact"],
     ];
 
     public function __construct($request)
     {
-        $this->request = $request; // Correction ici
+        $this->request = $request;
     }
 
     public function renderController()
@@ -17,10 +19,14 @@ class Routeur
         $request = $this->request;
 
         if (array_key_exists($request, $this->routes)) {
-            $controller = $this->routes[$request];
-            include_once(CONTROLLER . $controller . ".php");
+            $controllerName = $this->routes[$request]["controller"];
+            $method = $this->routes[$request]["method"];
 
-            
+            include_once(CONTROLLER . $controllerName . ".php");
+
+            $controller = new $controllerName();
+            $controller->$method();
+
         } else {
             echo "404";
         }
