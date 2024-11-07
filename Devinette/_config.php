@@ -26,26 +26,20 @@ class MYAutoload
         define('ASSETS', HOST.'assets/');
         
     }
-    public static function autoload($class)
-    {
-       if(file_exists(MODEL.$class. '.php'))
-       { 
-
-        include_once(MODEL.$class. '.php');
-
-       }elseif(file_exists(CLASSES.$class. '.php'))
-       {
-        include_once(CLASSES.$class. '.php');
-
-       }elseif(file_exists(VIEW.$class. '.php')){
-
-        include_once(VIEW.$class.'.php');
-
-       }elseif(file_exists(CONTROLLER.$class. '.php'))
-       {
-        include_once(CONTROLLER.$class.'.php');	
-       }
- }
+    public static function autoload($class){
+        if(file_exists(MODEL.$class. '.php')){ 
+            include_once(MODEL.$class. '.php');
+        }
+        elseif(file_exists(CLASSES.$class. '.php')){
+            include_once(CLASSES.$class. '.php');
+        }
+        elseif(file_exists(VIEW.$class. '.php')){
+            include_once(VIEW.$class.'.php');
+        }
+        elseif(file_exists(CONTROLLER.$class. '.php')){
+            include_once(CONTROLLER.$class.'.php');	
+        }
+    }
 }
 
 
