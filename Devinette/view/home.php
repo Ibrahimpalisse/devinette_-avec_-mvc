@@ -6,17 +6,17 @@
     ?>
             <div class="question">
                 <h3>
-                    <?php echo htmlspecialchars($devinette['name']); ?>
+                    <?php echo htmlspecialchars($devinette->getName()); ?>
                 </h3>
-                <?php echo htmlspecialchars($devinette['question']); ?>
+                <?php echo htmlspecialchars($devinette->getQuestion()); ?>
                 <hr/>
                 <button style="">
-                    <a  href="edit.php?id=<?php echo $devinette['id']; ?>">
+                    <a  href="edit.php?id=<?php echo $devinette->getId(); ?>">
                         Modifier
                     </a>
                 </button>
                 <button style="">
-                    <a href="delete.php?id=<?php echo $devinette['id']; ?>">
+                    <a href="delete.php?id=<?php echo $devinette->getId(); ?>">
                         Supprimer
                     </a>
                 </button>
@@ -24,7 +24,7 @@
                     Voir la réponse
                 </button>
                 <div class="divAnswer" style="display: none;">
-                    <?php echo htmlspecialchars($devinette['answer']); ?>
+                    <?php echo htmlspecialchars($devinette->getAnswer()); ?>
                 </div>
             </div>
     <?php 
