@@ -8,7 +8,8 @@ class Routeur
         "home"                  => ["controller" => "Home", "method" => "showHome"],
         "contact"               => ["controller" => "Home", "method" => "showContact"],
         "create_devinette.html" => ["controller" => "Home", "method" => "editDev"],
-    ];
+        'ajouter.html'         => ["controller" => "Home", "method" => "addDev"],
+    ]; 
 
     public function __construct($request)
     {

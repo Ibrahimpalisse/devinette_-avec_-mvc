@@ -2,7 +2,7 @@
 Class View {
         private $template;
 
-        public function __construct($template)
+        public function __construct($template = null) 
         {
             $this->template = $template;
         }
@@ -21,4 +21,9 @@ Class View {
             include_once(VIEW.'_gabarit.php');
             include(VIEW.$template.'.php');
         }
-    }
+
+        public function redirect($route)
+        {
+            header("Location: ".HOST.$route);
+        }
+    }  

@@ -1,7 +1,7 @@
 <div id="container">
         <h2>Ajouter une devinette</h2>
 
-        <form action="update.php" method="post">
+        <form action="<?php echo HOST; ?>ajouter.html" method="post">
 
             <?php if($devinette->getId()):?>
                 <input type="hidden" name="values[id]" value="<?php echo $devinette->getId();?>"/>
