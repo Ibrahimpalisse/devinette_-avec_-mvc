@@ -5,8 +5,9 @@ class Routeur
 {
     private $request;
     private $routes = [
-        "home" => ["controller" => "Home", "method" => "showHome"],
-        "contact" => ["controller" => "Home", "method" => "showContact"],
+        "home"                  => ["controller" => "Home", "method" => "showHome"],
+        "contact"               => ["controller" => "Home", "method" => "showContact"],
+        "create_devinette.html" => ["controller" => "Home", "method" => "editDev"],
     ];
 
     public function __construct($request)

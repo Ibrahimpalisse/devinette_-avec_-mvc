@@ -7,8 +7,14 @@ Class View {
             $this->template = $template;
         }
 
-        public function render($devinettes = NULL) 
+        public function render($params = array()) 
         {
+           /* foreach ($params as $name => $value) {
+                ${$name} = $value;
+            }*/
+
+            extract($params);
+            
             $template =  $this->template;
             ob_start();
             $content = ob_get_contents();

@@ -1,5 +1,7 @@
 <?php
 
+
+
 class DevinetteManger
 {
 
@@ -35,5 +37,26 @@ class DevinetteManger
         }
 
         return $devinettes;
+    }
+
+
+
+    public function find($id)
+    {
+        $sql = "SELECT * FROM devinette WHERE id = :id";
+        $raq = $this->bdd->prepare($sql);
+        $raq->bindParam(':id', $id, PDO::PARAM_INT);
+        $raq->execute();
+        $row = $raq->fetch(PDO::FETCH_ASSOC);
+    
+     
+        $devinette = new Devinette();
+            $devinette->setId( $row['id']);
+            $devinette->setName($row['name']);
+            $devinette->setQuestion($row['question']);
+            $devinette->setAnswer($row['answer']);
+            $devinette->setCreatedAt($row['created_at']);
+
+            return $devinette;
     }
 }

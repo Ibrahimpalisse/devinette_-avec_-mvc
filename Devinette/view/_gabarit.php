@@ -23,7 +23,7 @@
         </div>
         <div class="nav-item end-row"> 
             <button>
-                <a href="edit.php">Ajouter une devinette</a>
+                <a href="<?php echo HOST; ?>create_devinette.html">Ajouter une devinette</a>
             </button> 
             <a href="#" title="Favoris"> 
                 <i class="material-icons">star_border</i>
